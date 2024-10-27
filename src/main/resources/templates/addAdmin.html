@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="refresh" content="5; URL=/login">
+    <title>Title</title>
+</head>
+<body>
+<form action="/addBook" method="post" th:object="${admin}">
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{userName}" ><br><br>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password" th:field="*{password}" ><br><br>
+
+    <label for="name">name:</label>
+    <input type="text" id="name" th:field="*{name}" ><br><br>
+
+    <label for="age">age:</label>
+    <input type="text" id="age" th:field="*{age}" ><br><br>
+
+    <label for="phoneNumber">phone number:</label>
+    <input type="text" id="phoneNumber" th:field="*{phoneNumber}" ><br><br>
+
+    <label for="emailId">email Id:</label>
+    <input type="text" id="emailId" th:field="*{emailId}" ><br><br>
+
+    <button type="submit">Add Admin</button>
+</form>
+</body>
+</html>
