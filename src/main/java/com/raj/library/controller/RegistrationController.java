@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
@@ -26,5 +29,11 @@ public class RegistrationController {
     public String getMethodForAddAdmin(Model model){
         model.addAttribute("admin",new Admin());
         return "addAdmin";
+    }
+    private List<Admin> adminList = new ArrayList<>();
+    @GetMapping("/showAdmin")
+    public String showAdmin(Model model){
+        model.addAttribute("admin",adminList);
+        return "admins";
     }
 }
