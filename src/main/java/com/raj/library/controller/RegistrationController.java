@@ -16,7 +16,9 @@ public class RegistrationController {
     private AdminService adminService;
 
     @PostMapping("/addAdmin")
-    public void addAdmin(@ModelAttribute Admin admin){
+    public String  addAdmin(@ModelAttribute Admin admin){
         adminService.addAdmin(admin);
+        return "Success";
     }
+
 }
