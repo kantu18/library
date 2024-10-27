@@ -5,4 +5,5 @@ import jakarta.persistence.Id;
 public class Admin {
     @Id
     private String userName;
+    private String password;
 }
