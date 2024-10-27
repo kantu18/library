@@ -11,6 +11,8 @@ public class User {
     private String id;
     private int dueBooks;
     private int assignedBooks;
+    private String phoneNumber;
+    private String emailId;
 
     public User(String userName, String password, String name, int age, String id, int dueBooks, int assignedBooks) {
         this.userName = userName;
