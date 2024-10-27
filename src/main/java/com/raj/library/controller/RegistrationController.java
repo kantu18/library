@@ -4,6 +4,8 @@ import com.raj.library.Service.AdminService;
 import com.raj.library.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +22,9 @@ public class RegistrationController {
         adminService.addAdmin(admin);
         return "Success";
     }
-
+    @GetMapping("/addAdmin")
+    public String getMethodForAddAdmin(Model model){
+        model.addAttribute("admin",new Admin());
+        return "addAdmin";
+    }
 }
