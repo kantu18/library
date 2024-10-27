@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="refresh" content="5; URL=/login">
+    <meta>
     <title>Title</title>
 </head>
 <body>
-<form action="/addBook" method="post" th:object="${admin}">
+<form action="/registration/addAdmin" method="post" th:object="${admin}">
     <label for="username">Username:</label>
     <input type="text" id="username" th:field="*{userName}" ><br><br>
 
