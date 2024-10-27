@@ -14,7 +14,7 @@ public class User {
     private String phoneNumber;
     private String emailId;
 
-    public User(String userName, String password, String name, int age, String id, int dueBooks, int assignedBooks) {
+    public User(String userName, String password, String name, int age, String id, int dueBooks, int assignedBooks, String phoneNumber, String emailId) {
         this.userName = userName;
         this.password = password;
         this.name = name;
@@ -22,6 +22,8 @@ public class User {
         this.id = id;
         this.dueBooks = dueBooks;
         this.assignedBooks = assignedBooks;
+        this.phoneNumber = phoneNumber;
+        this.emailId = emailId;
     }
 
     public String getUserName() {
