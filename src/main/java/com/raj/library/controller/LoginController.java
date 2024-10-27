@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.Service.AdminService;
+import com.raj.library.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,9 @@ public class LoginController {
     AdminService adminService;
 
     @GetMapping("/adminLogin")
-    public void adminLogin(Model model){
-
+    public String adminLogin(Model model){
+        model.addAttribute("adminLogin",new Admin());
+        return "adminLogin";
     }
 
 }
