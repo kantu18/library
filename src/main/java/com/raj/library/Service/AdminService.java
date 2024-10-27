@@ -23,4 +23,11 @@ public class AdminService {
         adminList = adminRepo.findAll();
         return adminList;
     }
+    public boolean checkUserName(Admin admin){
+        if(adminRepo.existsById(admin.getUserName())){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
