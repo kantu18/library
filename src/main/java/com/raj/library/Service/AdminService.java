@@ -13,6 +13,6 @@ public class AdminService {
 
 
     public void addAdmin(Admin admin){
-
+        adminRepo.save(admin);
     }
 }
