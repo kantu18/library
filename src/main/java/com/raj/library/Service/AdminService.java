@@ -5,6 +5,9 @@ import com.raj.library.repository.AdminRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AdminService {
 
@@ -14,5 +17,9 @@ public class AdminService {
 
     public void addAdmin(Admin admin){
         adminRepo.save(admin);
+    }
+    List<Admin> adminList = new ArrayList<>();
+    public List<Admin> getAdmins(){
+
     }
 }
