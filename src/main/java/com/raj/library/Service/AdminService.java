@@ -20,6 +20,7 @@ public class AdminService {
     }
     List<Admin> adminList = new ArrayList<>();
     public List<Admin> getAdmins(){
-
+        adminList = adminRepo.findAll();
+        return adminList;
     }
 }
