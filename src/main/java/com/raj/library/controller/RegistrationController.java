@@ -25,7 +25,7 @@ public class RegistrationController {
         adminService.addAdmin(admin);
         return "Success";
     }
-    @GetMapping("/addAdmin")
+    @GetMapping("/add-Admin")
     public String getMethodForAddAdmin(Model model){
         model.addAttribute("admin",new Admin());
         return "addAdmin";
