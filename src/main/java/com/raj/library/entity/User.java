@@ -10,5 +10,6 @@ public class User {
     private int age;
     private String id;
     private int dueBooks;
+    private int assignedBooks;
 
 }
