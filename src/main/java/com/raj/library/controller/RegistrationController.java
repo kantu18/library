@@ -17,6 +17,6 @@ public class RegistrationController {
 
     @PostMapping("/addAdmin")
     public void addAdmin(@ModelAttribute Admin admin){
-
+        adminService.addAdmin(admin);
     }
 }
