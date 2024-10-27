@@ -4,10 +4,11 @@ import jakarta.persistence.Id;
 
 public class User {
     @Id
-    private String username;
+    private String userName;
     private String password;
     private String name;
     private int age;
     private String id;
-    private
+    private int dueBooks;
+
 }
