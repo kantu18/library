@@ -21,4 +21,60 @@ public class User {
         this.dueBooks = dueBooks;
         this.assignedBooks = assignedBooks;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getDueBooks() {
+        return dueBooks;
+    }
+
+    public void setDueBooks(int dueBooks) {
+        this.dueBooks = dueBooks;
+    }
+
+    public int getAssignedBooks() {
+        return assignedBooks;
+    }
+
+    public void setAssignedBooks(int assignedBooks) {
+        this.assignedBooks = assignedBooks;
+    }
 }
