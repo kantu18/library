@@ -25,7 +25,11 @@ public class LoginController {
     @PostMapping("/adminLogin")
     public String adminChecker(@ModelAttribute Admin admin){
         if(adminService.checkUserName(admin)==true){
+            if(adminService.checkPassword(admin)==true){
 
+            }{
+                return "wrongPassword";
+            }
         }else{
             return "noAdmin";
         }
