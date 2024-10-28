@@ -19,11 +19,7 @@ public class AdminService {
     public void addAdmin(Admin admin){
         adminRepo.save(admin);
     }
-    List<Admin> adminList = new ArrayList<>();
-    public List<Admin> getAdmins(){
-        adminList = adminRepo.findAll();
-        return adminList;
-    }
+
     public boolean checkUserName(Admin admin){
         if(adminRepo.existsById(admin.getUserName())){
             return true;
@@ -38,5 +34,9 @@ public class AdminService {
         }else{
             return false;
         }
+    }
+    public Admin getAdmin(Admin admin){
+        Optional<Admin> byId = adminRepo.findById(admin.getUserName());
+        return byId.get();
     }
 }
