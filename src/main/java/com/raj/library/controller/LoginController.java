@@ -26,7 +26,7 @@ public class LoginController {
     public String adminChecker(@ModelAttribute Admin admin){
         if(adminService.checkUserName(admin)==true){
             if(adminService.checkPassword(admin)==true){
-
+                return "AdminDetails";
             }{
                 return "wrongPassword";
             }
