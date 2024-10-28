@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -25,6 +26,14 @@ public class AdminService {
     }
     public boolean checkUserName(Admin admin){
         if(adminRepo.existsById(admin.getUserName())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public boolean checkPassword(Admin admin){
+        Optional<Admin> byId = adminRepo.findById(admin.getUserName());
+        if(byId.get().getPassword()==admin.getPassword()){
             return true;
         }else{
             return false;
