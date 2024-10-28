@@ -51,4 +51,16 @@ public class LoginController {
         model.addAttribute("userLogin",new User());
         return "userLogin";
     }
+    @PostMapping("/userLogin")
+    public String userChecker(@ModelAttribute User user){
+        if(userService.checkUserName(user)){
+            if(userService.checkPassword(user)){
+                return "redirect:/login/AdminDetails";
+            }{
+                return "wrongPassword";
+            }
+        }else{
+            return "noAdmin";
+        }
+    }
 }
