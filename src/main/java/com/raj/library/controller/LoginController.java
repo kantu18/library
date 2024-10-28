@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.Service.AdminService;
+import com.raj.library.Service.UserService;
 import com.raj.library.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
@@ -40,4 +41,6 @@ public class LoginController {
         model.addAttribute("details",adminService.getAdmin());
         return "adminDetails";
     }
+    @Autowired
+    private UserService userService;
 }
