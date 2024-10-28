@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta>
+    <title>Title</title>
+</head>
+<body>
+<h1>Admin Details: th:object="${details}"</h1>
+<p>Username: th:text="${object.userName}"</p><br><br>
+<p>Password: th:text="${object.password}"</p><br><br>
+<p>Name: th:text="${object.name}"</p><br><br>
+<p>Age: th:text="${object.age}"</p><br><br>
+<p>Phone Number: th:text="${object.phoneNumber}"</p><br><br>
+<p>Email ID: th:text="${object.emailId}"</p><br><br>
+<p>back to login page <a th:href="@{/login/admin-Login}"></a></p>
+</body>
+</html>
