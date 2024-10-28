@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta>
-    <title>Title</title>
+    <title>User Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Admin Details: th:object="${details}"</h1>
-<p>Username: th:text="${object.userName}"</p><br><br>
-<p>Password: th:text="${object.password}"</p><br><br>
-<p>Name: th:text="${object.name}"</p><br><br>
-<p>Age: th:text="${object.age}"</p><br><br>
-<p>Phone Number: th:text="${object.phoneNumber}"</p><br><br>
-<p>Email ID: th:text="${object.emailId}"</p><br><br>
-<p>back to login page <a th:href="@{/login/admin-Login}"></a></p>
+<div class="container mt-5">
+    <h2>User Details</h2>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>Username</th>
+            <td th:text="${details.userName}"></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td th:text="${details.name}"></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td th:text="${details.age}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${details.emailId}"></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td th:text="${details.phoneNumber}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
