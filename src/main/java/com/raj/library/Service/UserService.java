@@ -20,12 +20,13 @@ public class UserService {
             return false;
         }
     }
+    private String userUserName;
     public boolean checkPassword(User user){
         Optional<User> byId = userRepo.findById(user.getUserName());
         System.out.println(byId.get().getPassword());
         System.out.println(user.getPassword());
         if(byId.get().getPassword().equals(user.getPassword())){
-            adminUserName = byId.get().getUserName();
+            userUserName = byId.get().getUserName();
             return true;
         }else{
             return false;
