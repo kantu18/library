@@ -3,6 +3,7 @@ package com.raj.library.controller;
 import com.raj.library.Service.AdminService;
 import com.raj.library.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,12 +27,17 @@ public class LoginController {
     public String adminChecker(@ModelAttribute Admin admin){
         if(adminService.checkUserName(admin)==true){
             if(adminService.checkPassword(admin)==true){
-                return "AdminDetails";
+                return "redirect:/login/AdminDetails";
             }{
                 return "wrongPassword";
             }
         }else{
             return "noAdmin";
         }
+    }
+    @GetMapping("/AdminDetails")
+    public String adminDetailsShow(Model model,@ModelAttribute Admin admin){
+        model.addAttribute("details",adminService.getAdmin(admin));
+        return "adminDetails";
     }
 }
