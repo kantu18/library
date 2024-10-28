@@ -3,6 +3,7 @@ package com.raj.library.controller;
 import com.raj.library.Service.AdminService;
 import com.raj.library.Service.UserService;
 import com.raj.library.entity.Admin;
+import com.raj.library.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -41,6 +42,13 @@ public class LoginController {
         model.addAttribute("details",adminService.getAdmin());
         return "adminDetails";
     }
+
     @Autowired
     private UserService userService;
+
+    @GetMapping("/User-Login")
+    public String userLogin(Model model){
+        model.addAttribute("userLogin",new User());
+        return "userLogin";
+    }
 }
