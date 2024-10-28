@@ -25,8 +25,8 @@ public class LoginController {
     }
     @PostMapping("/adminLogin")
     public String adminChecker(@ModelAttribute Admin admin){
-        if(adminService.checkUserName(admin)==true){
-            if(adminService.checkPassword(admin)==true){
+        if(adminService.checkUserName(admin)){
+            if(adminService.checkPassword(admin)){
                 return "redirect:/login/AdminDetails";
             }{
                 return "wrongPassword";
@@ -36,8 +36,8 @@ public class LoginController {
         }
     }
     @GetMapping("/AdminDetails")
-    public String adminDetailsShow(Model model,@ModelAttribute Admin admin){
-        model.addAttribute("details",adminService.getAdmin(admin));
+    public String adminDetailsShow(Model model){
+        model.addAttribute("details",adminService.getAdmin());
         return "adminDetails";
     }
 }
