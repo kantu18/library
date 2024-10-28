@@ -30,11 +30,11 @@ public class RegistrationController {
         model.addAttribute("admin",new Admin());
         return "addAdmin";
     }
-    private List<Admin> adminList = new ArrayList<>();
-    @GetMapping("/showAdmin")
-    public String showAdmin(Model model){
-        adminList = adminService.getAdmins();
-        model.addAttribute("admin",adminList);
-        return "admins";
-    }
+//    private List<Admin> adminList = new ArrayList<>();
+//    @GetMapping("/showAdmin")
+//    public String showAdmin(Model model){
+//        adminList = adminService.getAdmins();
+//        model.addAttribute("admin",adminList);
+//        return "admins";
+//    }
 }
