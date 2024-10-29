@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.Service.AdminService;
+import com.raj.library.Service.UserService;
 import com.raj.library.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,11 +31,7 @@ public class RegistrationController {
         model.addAttribute("admin",new Admin());
         return "addAdmin";
     }
-//    private List<Admin> adminList = new ArrayList<>();
-//    @GetMapping("/showAdmin")
-//    public String showAdmin(Model model){
-//        adminList = adminService.getAdmins();
-//        model.addAttribute("admin",adminList);
-//        return "admins";
-//    }
+
+    @Autowired
+    private UserService userService;
 }
