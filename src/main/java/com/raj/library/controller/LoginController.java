@@ -5,7 +5,6 @@ import com.raj.library.Service.UserService;
 import com.raj.library.entity.Admin;
 import com.raj.library.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,5 +61,10 @@ public class LoginController {
         }else{
             return "noUser";
         }
+    }
+    @GetMapping("/UserDetails")
+    public String userDetailsShow(Model model){
+        model.addAttribute("details",userService.getUser());
+        return "userDetails";
     }
 }
