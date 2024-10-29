@@ -1,6 +1,8 @@
 package com.raj.library.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
@@ -10,6 +12,7 @@ public class User {
     private String password;
     private String name;
     private int age;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private int dueBooks;
     private int assignedBooks;
