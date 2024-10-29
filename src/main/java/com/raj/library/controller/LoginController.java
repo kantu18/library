@@ -54,7 +54,7 @@ public class LoginController {
     public String userChecker(@ModelAttribute User user){
         if(userService.checkUserName(user)){
             if(userService.checkPassword(user)){
-                return "redirect:/login/AdminDetails";
+                return "redirect:/login/UserDetails";
             }{
                 return "wrongPasswordUser";
             }
