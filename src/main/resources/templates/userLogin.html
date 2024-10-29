@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta>
+    <title>Title</title>
+</head>
+<body>
+<form action="/login/userLogin" method="post" th:object="${userLogin}">
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{userName}" ><br><br>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password" th:field="*{password}" ><br><br>
+
+
+    <button type="submit">Login</button>
+    <p>don't have any admin account? <a href="/registration/add-Admin">Register As Admin</a></p>
+</form>
+</body>
+</html>
