@@ -31,7 +31,7 @@ public class LoginController {
             if(adminService.checkPassword(admin)){
                 return "redirect:/login/AdminDetails";
             }{
-                return "wrongPassword";
+                return "wrongPasswordAdmin";
             }
         }else{
             return "noAdmin";
@@ -57,10 +57,10 @@ public class LoginController {
             if(userService.checkPassword(user)){
                 return "redirect:/login/AdminDetails";
             }{
-                return "wrongPassword";
+                return "wrongPasswordUser";
             }
         }else{
-            return "noAdmin";
+            return "noUser";
         }
     }
 }
