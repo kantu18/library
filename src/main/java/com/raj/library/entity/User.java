@@ -12,7 +12,7 @@ public class User {
     private String password;
     private String name;
     private int age;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private int dueBooks;
     private int assignedBooks;
