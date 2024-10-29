@@ -13,6 +13,9 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
+    public void addUser(User user){
+        userRepo.save(user);
+    }
     public boolean checkUserName(User user){
         if(userRepo.existsById(user.getUserName())){
             return true;
