@@ -26,7 +26,7 @@ public class RegistrationController {
     @PostMapping("/addAdmin")
     public String  addAdmin(@ModelAttribute Admin admin){
         adminService.addAdmin(admin);
-        return "Success";
+        return "SuccessAdmin";
     }
     @GetMapping("/add-Admin")
     public String getMethodForAddAdmin(Model model){
@@ -41,5 +41,11 @@ public class RegistrationController {
     public String addUser(Model model){
         model.addAttribute("user",new User());
         return "addUser";
+    }
+
+    @PostMapping("/addUser")
+    public String postUser(@ModelAttribute User user){
+        userService.addUser(user);
+        return "SuccessUser";
     }
 }
