@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="refresh" content="5; URL=/login/admin-Login">
+    <meta http-equiv="refresh" content="2; URL=/login/admin-Login">
+    <link rel="stylesheet" href="/css/SuccessAdmin.css">
     <title>Title</title>
 </head>
 <body>
-<h1>Registration Completed</h1>
-<p>You have successfully registered. Redirecting to login page...</p>
-<p>If you're not redirected, <a th:href="@{/login/admin-Login}">click here</a>.</p>
+<div class="container">
+    <div class="top">
+        <i class="fa-regular fa-circle-check"></i>
+        <h3>SUCCESS</h3>
+    </div>
+    <div class="bottom">
+        <p>Congratulation, your account has been successfully created</p>
+        <button th:href="@{/login/admin-Login}">Continue</button>
+    </div>
+</div>
 </body>
 </html>
