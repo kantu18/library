@@ -1,11 +1,9 @@
 package com.raj.library.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name="Student")
 public class User {
     @Id
     private String userName;
@@ -18,11 +16,11 @@ public class User {
     private int assignedBooks;
     private String phoneNumber;
     private String emailId;
-
+    private String gender;
     public User(){
 
     }
-    public User(String userName, String password, String name, int age, String id, int dueBooks, int assignedBooks, String phoneNumber, String emailId) {
+    public User(String userName, String password, String name, int age, String id, int dueBooks, int assignedBooks, String phoneNumber, String emailId, String gender) {
         this.userName = userName;
         this.password = password;
         this.name = name;
@@ -32,6 +30,15 @@ public class User {
         this.assignedBooks = assignedBooks;
         this.phoneNumber = phoneNumber;
         this.emailId = emailId;
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getUserName() {
