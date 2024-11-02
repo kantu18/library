@@ -2,8 +2,10 @@ package com.raj.library.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="Librarian")
 public class Admin {
     @Id
     private String userName;
