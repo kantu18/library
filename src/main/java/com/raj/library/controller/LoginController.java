@@ -67,11 +67,11 @@ public class LoginController {
         }
     }
     @GetMapping("/UserDetails")
-    public String homePage(){
+//    public String homePage(){
+//        return "homePage";
+//    }
+    public String userDetailsShow(Model model){
+        model.addAttribute("details",userService.getUser());
         return "homePage";
     }
-//    public String userDetailsShow(Model model){
-//        model.addAttribute("details",userService.getUser());
-//        return "userDetails";
-//    }
 }
