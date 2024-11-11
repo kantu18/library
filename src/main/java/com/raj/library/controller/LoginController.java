@@ -39,7 +39,7 @@ public class LoginController {
     }
     @GetMapping("/AdminDetails")
     public String adminPage(){
-        return "homePage";
+        return "home";
     }
 //    public String adminDetailsShow(Model model){
 //        model.addAttribute("details",adminService.getAdmin());
@@ -72,6 +72,6 @@ public class LoginController {
 //    }
     public String userDetailsShow(Model model){
         model.addAttribute("details",userService.getUser());
-        return "homePage";
+        return "home";
     }
 }
