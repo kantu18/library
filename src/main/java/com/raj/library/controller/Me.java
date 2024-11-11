@@ -14,7 +14,7 @@ public class Me {
     @Autowired
     private UserService userService;
 
-    @GetMapping("details")
+    @GetMapping()
     public String getUser(Model model){
         model.addAttribute("details",userService.getUser());
         return "Me";
