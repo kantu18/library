@@ -41,10 +41,7 @@ public class LoginController {
     public String adminPage(){
         return "home";
     }
-//    public String adminDetailsShow(Model model){
-//        model.addAttribute("details",adminService.getAdmin());
-//        return "adminDetails";
-//    }
+
 
     @Autowired
     private UserService userService;
@@ -67,9 +64,6 @@ public class LoginController {
         }
     }
     @GetMapping("/UserDetails")
-//    public String homePage(){
-//        return "homePage";
-//    }
     public String userDetailsShow(Model model){
         model.addAttribute("details",userService.getUser());
         return "home";
