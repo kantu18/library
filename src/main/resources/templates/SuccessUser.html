@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <meta http-equiv="refresh" content="2; URL=/login/User-Login">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/SuccessUser.css">
-    <title>Success Page</title>
+    <title>Account Created</title>
 </head>
 <body>
 <div class="container">
-    <div class="top">
-        <i class="fa-regular fa-circle-check"></i>
-        <h3>SUCCESS</h3>
-    </div>
-    <div class="bottom">
-        <p>Congratulation, your account has been successfully created</p>
-        <button th:href="@{/login/User-Login}">Continue</button>
-    </div>
+    <h1>Account Created Successfully!</h1>
+    <p>Your account has been created successfully. You can now log in to your account.</p>
+    <a th:href="@{/login/User-Login}">Go to Login Page</a>
 </div>
-<!--<h1>Registration Completed</h1>-->
-<!--<p>You have successfully registered. Redirecting to login page...</p>-->
-<!--<p>If you're not redirected, <a th:href="@{/login/User-Login}">click here</a>.</p>-->
 </body>
 </html>
