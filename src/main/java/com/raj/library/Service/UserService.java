@@ -39,4 +39,13 @@ public class UserService {
         Optional<User> byId = userRepo.findById(userUserName);
         return byId.get();
     }
+    public boolean deleteUser(User user){
+        try {
+            userRepo.delete(user);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
