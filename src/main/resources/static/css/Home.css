@@ -70,6 +70,9 @@ nav ul li a{
 .user-info h3{
     font-weight: 500;
 }
+.user-info:hover h3{
+    font-weight: 600;
+}
 .user-info img{
     width: 60px;
     border-radius: 50%;
