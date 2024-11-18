@@ -19,12 +19,14 @@ public class OTPController {
     @Autowired
     private EmailService emailService;
 
-    @PostMapping("/Verify")
-    public void generateAndSendOTP(@RequestParam("email") String mail){
+    @PostMapping()
+    public void generateAndSendOTP(@RequestParam("email") String email){
+        if(email.length()==0){
+            System.out.println("null");
+        }
         String otp = otpService.generateOTP();
         System.out.println(otp);
-        emailService.sendOtpEmail(mail,otp);
-        OTPStorage.storeOtp(mail,otp);
+        emailService.sendOtpEmail(email,otp);
+        OTPStorage.storeOtp(email,otp);
     }
-
 }
