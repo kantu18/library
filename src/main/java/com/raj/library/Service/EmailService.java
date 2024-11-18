@@ -8,4 +8,8 @@ import org.springframework.stereotype.Service;
 public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
+
+    public void sendOtpEmail(String mail,String otp){
+
+    }
 }
