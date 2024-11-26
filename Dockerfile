@@ -1,4 +1,10 @@
+# Use the official OpenJDK 17 image from Docker Hub
 FROM openjdk:21
-ADD target/bookstore.jar bookstore.jar
+# Set working directory inside the container
+WORKDIR /app
+# Copy the compiled Java application JAR file into the container
+COPY ./target/bookstore.jar /app
+# Expose the port the Spring Boot application will run on
 EXPOSE 8080
-ENTRYPOINT [ "java", "-jar", "/bookstore.jar" ]
+# Command to run the application
+CMD ["java", "-jar", "bookstore.jar"]
