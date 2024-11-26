@@ -7,7 +7,7 @@ phases:
       
   pre_build:
     commands:
-      - mvn clean install -X # Run the Maven build
+      - mvn clean install # Run the Maven build
       - echo Logging in to Amazon ECR...
       - aws --version
       - REPOSITORY_URI=975050343452.dkr.ecr.eu-north-1.amazonaws.com/snehasish_bookstore
