@@ -76,7 +76,7 @@
         </plugins>
 
         <!-- Final Build Name -->
-        <finalName>library-management</finalName>
+        <finalName>bookstore</finalName>
     </build>
 
 </project>
