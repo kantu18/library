@@ -73,7 +73,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-			<finalName>bookstore</finalName>
 	</build>
 
 </project>
