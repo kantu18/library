@@ -1,12 +1,12 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      java: corretto21
+      
   pre_build:
     commands:
-      - echo Setting up Java 21...
-      - export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64  # Adjust this path if needed
-      - export PATH=$JAVA_HOME/bin:$PATH
-      - java -version  # Verify Java version
       - mvn clean install  # Run the Maven build
       - echo Logging in to Amazon ECR...
       - aws --version
