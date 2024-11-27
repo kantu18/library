@@ -6,8 +6,8 @@ phases:
       java: corretto21  # Set the Java runtime version to Amazon Corretto 21
     commands:
       - echo Installing MySQL Server...
-      - sudo apt-get update
-      - sudo apt-get install -y mysql-server
+      - sudo yum update -y
+      - sudo yum install -y mysql-server
       - mysql --version  # Verify MySQL installation
   pre_build:
     commands:
