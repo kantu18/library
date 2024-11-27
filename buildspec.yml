@@ -1,16 +1,11 @@
 version: 0.2
 
-phases: # Set the Java runtime version to Amazon Corretto 21
+phases:
+  install:
+    runtime-versions:
+      java: corretto21  # Set the Java runtime version to Amazon Corretto 21
   pre_build:
     commands:
-      - sudo yum install java-21-amazon-corretto
-      - export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
-      - export PATH=$JAVA_HOME/bin:$PATH
-      - curl -O https://downloads.apache.org/maven/maven-3/3.9.8/binaries/apache-maven-3.9.8-bin.tar.gz
-      - tar xzvf apache-maven-3.9.8-bin.tar.gz
-      - sudo mv apache-maven-3.9.8 /usr/local/apache-maven
-      - export PATH=/usr/local/apache-maven/bin:$PATH
-      - mvn -v 
       - mvn clean install  # Run the Maven build
       - echo Logging in to Amazon ECR...
       - aws --version
