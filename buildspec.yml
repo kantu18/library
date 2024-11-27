@@ -4,6 +4,8 @@ phases: # Set the Java runtime version to Amazon Corretto 21
   pre_build:
     commands:
       - sudo yum install java-21-amazon-corretto
+      - export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto
+      - export PATH=$JAVA_HOME/bin:$PATH
       - mvn clean install  # Run the Maven build
       - echo Logging in to Amazon ECR...
       - aws --version
