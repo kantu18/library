@@ -1,9 +1,6 @@
 version: 0.2
 
-phases:
-  install:
-    runtime-versions:
-      java: corretto21  # Set the Java runtime version to Amazon Corretto 21
+phases: # Set the Java runtime version to Amazon Corretto 21
   pre_build:
     commands:
       - mvn clean install  # Run the Maven build
