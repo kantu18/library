@@ -1,45 +1,42 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      java: corretto21  # Set the Java runtime version to Amazon Corretto 21
-    commands:
-      - echo Installing MySQL Server...
-      - sudo yum update -y
-      - sudo yum install -y mysql-server
-      - mysql --version  # Verify MySQL installation
   pre_build:
     commands:
-      - mvn clean install  # Run the Maven build
-      - echo Logging in to Amazon ECR...
-      - aws --version
-      - REPOSITORY_URI=975050343452.dkr.ecr.eu-north-1.amazonaws.com/snehasish_bookstore  # Set the ECR repository URI
-      - aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin $REPOSITORY_URI  # Login to ECR
-      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)  # Get the commit hash
-      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')  # Tag the image with the build ID
+      - sudo yum install java-21-amazon-corretto
+      - export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
+      - export PATH=$JAVA_HOME/bin:$PATH
+      - java -version  # Verify Java version
+      - curl -O https://downloads.apache.org/maven/maven-3/3.9.8/binaries/apache-maven-3.9.8-bin.tar.gz
+      - tar xzvf apache-maven-3.9.8-bin.tar.gz
+      - sudo mv apache-maven-3.9.8 /usr/local/apache-maven
+      - export PATH=/usr/local/apache-maven/bin:$PATH
+      - mvn -v  # Verify Maven version
+      - echo Installing MySQL...
+      - sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+      - sudo dnf install mysql80-community-release-el9-1.noarch.rpm -y
+      - sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+      - sudo dnf install mysql-community-client -y
+      - sudo dnf install mysql-community-server -y
+      - sudo systemctl start mysqld  
+      - mvn clean install  # Build the project
+
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest .  # Build Docker image
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG  # Tag the Docker image with the build ID
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker images...
-      - docker push $REPOSITORY_URI:latest  # Push the latest tag to ECR
-      - docker push $REPOSITORY_URI:$IMAGE_TAG  # Push the build-specific tag to ECR
-      - echo Writing image definitions file...
-      - printf '[{"name":"course-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json  # Generate image definitions for ECS
-      # Add your container name here, if different from 'course-service'
-      - DOCKER_CONTAINER_NAME=snehasish_bookstore  # Container name for ECS
-      - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json  # Update image definitions
-      - echo $DOCKER_CONTAINER_NAME
-      - echo Printing imagedefinitions.json
-      - cat imagedefinitions.json  # Print image definitions for verification
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinitions.json
 
 artifacts:
   files:
-    - imagedefinitions.json  # Save image definition file for ECS deployment
-    - target/bookstore.jar  # Include the built JAR artifact for reference (if needed)
+    - imagedefinitions.json
+    - target/bookstore.jar
